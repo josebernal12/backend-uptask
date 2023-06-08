@@ -9,7 +9,6 @@ const checkAuth = async (req, res, next) => {
             const decoded = jwt.verify(token, process.env.JWT_SECRET)
 
             req.user = await user.findById(decoded.id).select('-password -confirmed -token -createdAt -updatedAt -__v')
-            console.log(req.user)
             return next()
         } catch (error) {
             return res.status(404).json({ msg: 'there was a mistake' })

@@ -20,7 +20,7 @@ const projectSchema = mongoose.Schema({
         type: Date,
         default: Date.now()
     },
-    cliente: {
+    client: {
         type: String,
         trim: true,
         required: true
